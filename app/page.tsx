@@ -1,9 +1,17 @@
+import Hero from "@/components/Hero";
+import AboutSnippet from "@/components/AboutSnippet";
+import ProjectGrid from "@/components/ProjectGrid";
+import CTASection from "@/components/CTASection";
+import Footer from "@/components/Footer";
+
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <h1 className="font-heading text-text-heading text-6xl font-bold">
-        Portfolio
-      </h1>
+    <main>
+      <Hero />
+      <AboutSnippet />
+      <ProjectGrid />
+      <CTASection />
+      <Footer />
     </main>
   );
 }
