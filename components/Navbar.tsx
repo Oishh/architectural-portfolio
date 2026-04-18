@@ -24,7 +24,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-bg-primary/80 backdrop-blur-md border-b border-border-subtle"
+          ? "glass border-b border-border-glass"
           : "bg-transparent"
       }`}
     >
@@ -46,6 +46,14 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 px-5 py-2 text-sm uppercase tracking-widest bg-accent text-white rounded-full hover:bg-accent-light transition-colors duration-200"
+          >
+            Resume
+          </a>
         </div>
 
         <button
@@ -76,7 +84,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-bg-primary/95 backdrop-blur-md border-b border-border-subtle overflow-hidden"
+            className="md:hidden glass border-b border-border-glass overflow-hidden"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -89,6 +97,15 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="inline-block w-fit px-5 py-2 text-sm uppercase tracking-widest bg-accent text-white rounded-full hover:bg-accent-light transition-colors duration-200"
+              >
+                Resume
+              </a>
             </div>
           </motion.div>
         )}

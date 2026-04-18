@@ -16,7 +16,7 @@ export default function GalleryImage({
 }: GalleryImageProps) {
   return (
     <ScrollReveal>
-      <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-bg-card">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-bg-card border border-border-glass">
         <Image
           src={src}
           alt={alt}

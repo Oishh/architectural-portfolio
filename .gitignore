@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# brainstorm mockups (local only)
+.superpowers/
+
+# client asset dumps (not part of the app)
+drive-download-*/

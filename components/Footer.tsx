@@ -8,7 +8,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border-subtle py-12 px-6">
+    <footer className="border-t border-border-glass py-12 px-6">
       <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
         <Link
           href="/"

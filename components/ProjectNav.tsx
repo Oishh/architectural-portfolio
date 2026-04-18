@@ -12,13 +12,13 @@ export default function ProjectNav({
   next: Project;
 }) {
   return (
-    <section className="border-t border-border-subtle">
+    <section className="border-t border-border-glass">
       <div className="grid grid-cols-1 md:grid-cols-2">
         <Link
           href={`/projects/${prev.slug}`}
           className="group relative flex items-center gap-6 p-8 md:p-12 hover:bg-bg-card/50 transition-colors duration-300"
         >
-          <div className="relative w-20 h-14 rounded-sm overflow-hidden shrink-0 bg-bg-card">
+          <div className="relative w-20 h-14 rounded-lg overflow-hidden shrink-0 bg-bg-card">
             <Image
               src={prev.heroImage}
               alt={prev.name}
@@ -39,7 +39,7 @@ export default function ProjectNav({
 
         <Link
           href={`/projects/${next.slug}`}
-          className="group relative flex items-center justify-end gap-6 p-8 md:p-12 hover:bg-bg-card/50 transition-colors duration-300 border-t md:border-t-0 md:border-l border-border-subtle"
+          className="group relative flex items-center justify-end gap-6 p-8 md:p-12 hover:bg-bg-card/50 transition-colors duration-300 border-t md:border-t-0 md:border-l border-border-glass"
         >
           <div className="text-right">
             <p className="text-xs uppercase tracking-widest text-text-body/50 mb-1">
@@ -49,7 +49,7 @@ export default function ProjectNav({
               {next.name}
             </p>
           </div>
-          <div className="relative w-20 h-14 rounded-sm overflow-hidden shrink-0 bg-bg-card">
+          <div className="relative w-20 h-14 rounded-lg overflow-hidden shrink-0 bg-bg-card">
             <Image
               src={next.heroImage}
               alt={next.name}

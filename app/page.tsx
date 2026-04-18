@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import AboutSnippet from "@/components/AboutSnippet";
+import ToolsSection from "@/components/ToolsSection";
 import ProjectGrid from "@/components/ProjectGrid";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -11,6 +12,7 @@ export default function Home() {
       <main>
         <Hero />
         <AboutSnippet />
+        <ToolsSection />
         <ProjectGrid />
         <CTASection />
         <Footer />

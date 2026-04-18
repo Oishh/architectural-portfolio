@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
@@ -26,8 +20,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
+    <html lang="en" className={inter.variable}>
       <body className="antialiased">
+        {/* Background: dot grid + glow blobs */}
+        <div className="dot-grid" />
+        <div className="glow-blob glow-blob-1" />
+        <div className="glow-blob glow-blob-2" />
+        <div className="glow-blob glow-blob-3" />
         <Navbar />
         {children}
       </body>

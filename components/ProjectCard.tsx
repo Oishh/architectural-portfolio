@@ -19,7 +19,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
     >
       <Link href={`/projects/${project.slug}`} className="group block">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-bg-card">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-bg-card border border-border-glass">
           <Image
             src={project.heroImage}
             alt={project.name}
