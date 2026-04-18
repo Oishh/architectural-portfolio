@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import { currently } from "@/data/currently";
 
@@ -45,15 +44,6 @@ export default function CurrentlySection() {
             );
           })}
         </dl>
-
-        <ScrollReveal delay={0.6}>
-          <Link
-            href="/notes"
-            className="inline-block mt-10 text-sm text-text-body/70 hover:text-accent transition-colors"
-          >
-            → More in Field Notes
-          </Link>
-        </ScrollReveal>
       </div>
     </section>
   );

@@ -59,7 +59,7 @@ export default async function ProjectPage({
           <ProjectPullQuotes quotes={project.pullQuotes} />
         )}
 
-        <ProjectGallery gallery={project.gallery} />
+        <ProjectGallery gallery={project.gallery} slug={project.slug} />
         <ProjectNav prev={prev} next={next} />
         <Footer />
       </main>

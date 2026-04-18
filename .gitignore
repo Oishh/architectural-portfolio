@@ -43,5 +43,8 @@ next-env.d.ts
 # brainstorm mockups (local only)
 .superpowers/
 
+# playwright-cli browser inspection artifacts (local only)
+.playwright-cli/
+
 # client asset dumps (not part of the app)
 drive-download-*/
