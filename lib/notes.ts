@@ -1,5 +1,6 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { cache } from "react";
 import readingTime from "reading-time";
 
 const NOTES_DIR = join(process.cwd(), "content/notes");
@@ -37,7 +38,7 @@ async function importMetadata(filename: string): Promise<NoteMetadata> {
   return mod.metadata as NoteMetadata;
 }
 
-export async function loadAllNotes(): Promise<NoteSummary[]> {
+export const loadAllNotes = cache(async (): Promise<NoteSummary[]> => {
   const files = readdirSync(NOTES_DIR).filter((f) => f.endsWith(".mdx"));
 
   const summaries = await Promise.all(
@@ -65,7 +66,7 @@ export async function loadAllNotes(): Promise<NoteSummary[]> {
   });
 
   return visible;
-}
+});
 
 export async function loadNote(
   slug: string
@@ -76,10 +77,3 @@ export async function loadNote(
   return { summary: match, filename: match.filename };
 }
 
-export function filterByType(
-  notes: NoteSummary[],
-  type: NoteType | "all"
-): NoteSummary[] {
-  if (type === "all") return notes;
-  return notes.filter((n) => n.type === type);
-}

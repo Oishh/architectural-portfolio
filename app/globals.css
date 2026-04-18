@@ -111,6 +111,9 @@ main, footer {
 }
 
 /* MDX reading layout */
+/* Drop-cap assumes the first child of the article is a paragraph.
+   If a note opens with <PullQuote>, <Figure>, or <Aside>, the drop-cap will
+   apply to that component's first letter instead — lead with a paragraph. */
 .prose-reading > :first-child::first-letter {
   float: left;
   font-family: var(--font-heading);
