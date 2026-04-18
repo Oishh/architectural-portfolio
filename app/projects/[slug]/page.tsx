@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { projects, getProjectBySlug, getAdjacentProjects } from "@/data/projects";
 import ProjectHero from "@/components/ProjectHero";
 import ProjectGallery from "@/components/ProjectGallery";
+import ProjectPullQuotes from "@/components/ProjectPullQuotes";
 import ProjectNav from "@/components/ProjectNav";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
@@ -53,6 +54,10 @@ export default async function ProjectPage({
             </ScrollReveal>
           </div>
         </section>
+
+        {project.pullQuotes && project.pullQuotes.length > 0 && (
+          <ProjectPullQuotes quotes={project.pullQuotes} />
+        )}
 
         <ProjectGallery gallery={project.gallery} />
         <ProjectNav prev={prev} next={next} />

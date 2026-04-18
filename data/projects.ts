@@ -13,6 +13,7 @@ export type Project = {
   description: string;
   heroImage: string;
   gallery: GalleryItem[];
+  pullQuotes?: { text: string; attribution?: string }[];
 };
 
 export const projects: Project[] = [
@@ -38,6 +39,11 @@ export const projects: Project[] = [
       { src: "/projects/gabatin/bedroom.png", alt: "Bedroom", layout: "pair" },
       { src: "/projects/gabatin/family-room.png", alt: "Family room", layout: "detail" },
       { src: "/projects/gabatin/garden.png", alt: "Garden", layout: "full" },
+    ],
+    pullQuotes: [
+      {
+        text: "The plan did the work. Everything else was restraint.",
+      },
     ],
   },
   {
