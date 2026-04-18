@@ -8,7 +8,7 @@ type PullQuoteProps = {
 export default function PullQuote({ attribution, children }: PullQuoteProps) {
   return (
     <figure className="my-10 border-l-2 border-accent pl-6 md:pl-8">
-      <blockquote className="font-heading text-text-heading text-xl md:text-2xl font-light italic leading-snug">
+      <blockquote className="text-text-heading text-xl md:text-2xl font-light italic leading-snug">
         {children}
       </blockquote>
       {attribution && (

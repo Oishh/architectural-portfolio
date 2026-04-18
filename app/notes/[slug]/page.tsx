@@ -77,7 +77,7 @@ export default async function NotePage({
             </h1>
           </header>
 
-          <article className="prose-reading text-text-body text-lg leading-relaxed font-heading font-light">
+          <article className="prose-reading text-text-body text-lg leading-relaxed font-light">
             <MDXBody />
           </article>
 

@@ -34,7 +34,7 @@ export default function CurrentlySection() {
                   <dd
                     className={
                       isThinking
-                        ? "font-heading text-text-heading text-lg md:text-xl italic font-light leading-snug"
+                        ? "text-text-heading text-lg md:text-xl italic font-light leading-snug"
                         : "text-text-body text-base md:text-lg leading-snug"
                     }
                   >
