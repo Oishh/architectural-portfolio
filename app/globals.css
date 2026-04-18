@@ -109,3 +109,33 @@ main, footer {
   background-color: var(--color-accent);
   color: white;
 }
+
+/* MDX reading layout */
+.prose-reading > :first-child::first-letter {
+  float: left;
+  font-family: var(--font-heading);
+  font-size: 4.5em;
+  line-height: 0.85;
+  padding: 0.1em 0.1em 0 0;
+  color: var(--color-text-heading);
+}
+
+.prose-reading p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose-reading p:first-child {
+  margin-top: 0;
+}
+
+.prose-reading a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-reading strong {
+  color: var(--color-text-heading);
+  font-weight: 600;
+}
