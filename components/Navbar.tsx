@@ -47,7 +47,7 @@ export default function Navbar() {
             </Link>
           ))}
           <a
-            href="/resume.pdf"
+            href="/ALCANTARA_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 px-5 py-2 text-sm uppercase tracking-widest bg-accent text-white rounded-full hover:bg-accent-light transition-colors duration-200"
@@ -98,7 +98,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <a
-                href="/resume.pdf"
+                href="/ALCANTARA_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
