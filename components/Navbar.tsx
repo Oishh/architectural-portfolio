@@ -33,7 +33,7 @@ export default function Navbar() {
           href="/"
           className="font-heading text-text-heading text-2xl font-bold tracking-tight"
         >
-          STUDIO
+          PORTFOLIO
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
