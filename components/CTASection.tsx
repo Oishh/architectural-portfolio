@@ -53,7 +53,7 @@ export default function CTASection() {
                       ? "noopener noreferrer"
                       : undefined
                   }
-                  className="group text-center p-6 rounded-xl border border-border-glass hover:bg-white/[0.03] transition-all duration-300"
+                  className="group text-center p-6 rounded-xl border border-border-glass hover:bg-black/[0.03] transition-all duration-300"
                 >
                   <p className="text-xs uppercase tracking-widest text-text-body/50 mb-2">
                     {item.label}

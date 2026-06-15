@@ -24,7 +24,7 @@ export default function ProjectHero({ project }: { project: Project }) {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
       </motion.div>
 
       <div className="absolute bottom-0 left-0 right-0 z-10 px-6 pb-16">
@@ -41,7 +41,7 @@ export default function ProjectHero({ project }: { project: Project }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-heading text-text-heading text-4xl md:text-6xl lg:text-7xl font-bold"
+            className="font-heading text-white text-4xl md:text-6xl lg:text-7xl font-bold"
           >
             {project.name}
           </motion.h1>
@@ -49,7 +49,7 @@ export default function ProjectHero({ project }: { project: Project }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex gap-6 mt-4 text-text-body text-sm"
+            className="flex gap-6 mt-4 text-white/80 text-sm"
           >
             <span>{project.location}</span>
             <span>{project.year}</span>

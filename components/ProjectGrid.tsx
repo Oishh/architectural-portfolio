@@ -1,10 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import ScrollReveal from "./ScrollReveal";
 import ProjectCard from "./ProjectCard";
 import { projects } from "@/data/projects";
 
 export default function ProjectGrid() {
+  // First card expanded by default so the row reads intentionally on load.
+  const [active, setActive] = useState(0);
+
   return (
     <section id="projects" className="py-32 px-6">
       <div className="mx-auto max-w-7xl">
@@ -17,9 +21,17 @@ export default function ProjectGrid() {
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div
+          className="flex flex-col md:flex-row gap-3 md:h-[62vh] md:min-h-[28rem]"
+          onMouseLeave={() => setActive(0)}
+        >
           {projects.map((project, i) => (
-            <ProjectCard key={project.slug} project={project} index={i} />
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              active={active === i}
+              onActivate={() => setActive(i)}
+            />
           ))}
         </div>
       </div>

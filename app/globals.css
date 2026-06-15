@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #0B0F2A;
-  --color-bg-card: rgba(17, 22, 56, 0.45);
-  --color-bg-card-solid: #111638;
-  --color-text-heading: #FFFFFF;
-  --color-text-body: #B8BCD0;
-  --color-accent: #2A3FCC;
-  --color-accent-light: #4F63E8;
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-border-glass: rgba(255, 255, 255, 0.12);
+  --color-bg-primary: #E7E2D7;
+  --color-bg-card: rgba(255, 255, 255, 0.55);
+  --color-bg-card-solid: #FBFAF7;
+  --color-text-heading: #1E1A15;
+  --color-text-body: #575147;
+  --color-accent: #8B6F3A;
+  --color-accent-light: #A8884F;
+  --color-border-subtle: rgba(0, 0, 0, 0.08);
+  --color-border-glass: rgba(0, 0, 0, 0.12);
 
   --font-heading: "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -22,10 +22,12 @@ html {
 body {
   color: var(--color-text-body);
   font-family: var(--font-body);
-  background-color: #060918;
+  background-color: #E7E2D7;
   min-height: 100vh;
   position: relative;
-  overflow-x: hidden;
+  /* NOTE: avoid overflow-x:hidden here — it makes <body> the scroll container
+     and breaks position:sticky used by the 3D-grid hero. Clip horizontally on
+     individual sections instead. */
 }
 
 /* Dot grid pattern */
@@ -34,8 +36,8 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-image: radial-gradient(circle, rgba(30, 26, 21, 0.04) 1px, transparent 1px);
+  background-size: 34px 34px;
 }
 
 /* Ambient glow blobs */
@@ -44,31 +46,33 @@ body {
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-  filter: blur(100px);
+  filter: blur(110px);
 }
 
 .glow-blob-1 {
-  width: 700px;
-  height: 700px;
-  top: -15%;
+  width: 800px;
+  height: 800px;
+  top: -20%;
   left: -10%;
-  background: radial-gradient(circle, rgba(42, 63, 204, 0.25) 0%, transparent 70%);
+  /* warm gallery light wash */
+  background: radial-gradient(circle, rgba(255, 250, 240, 0.55) 0%, transparent 70%);
 }
 
 .glow-blob-2 {
   width: 500px;
   height: 500px;
-  top: 40%;
+  top: 45%;
   right: -8%;
-  background: radial-gradient(circle, rgba(79, 99, 232, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(42, 63, 204, 0.06) 0%, transparent 70%);
 }
 
 .glow-blob-3 {
-  width: 600px;
-  height: 600px;
-  bottom: -10%;
-  left: 20%;
-  background: radial-gradient(circle, rgba(42, 63, 204, 0.18) 0%, transparent 70%);
+  width: 700px;
+  height: 700px;
+  bottom: -12%;
+  left: 15%;
+  /* soft deepening at the base so the wall reads as a surface, not flat color */
+  background: radial-gradient(circle, rgba(120, 108, 90, 0.10) 0%, transparent 70%);
 }
 
 /* Ensure page content sits above background layers, but don't break fixed positioning */
@@ -79,23 +83,23 @@ main, footer {
 
 /* Utility class for frosted glass panels */
 .glass {
-  background: rgba(17, 22, 56, 0.4);
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(24px) saturate(1.4);
   -webkit-backdrop-filter: blur(24px) saturate(1.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.07);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    0 8px 32px rgba(26, 23, 20, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .glass-light {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(20px) saturate(1.3);
   -webkit-backdrop-filter: blur(20px) saturate(1.3);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 4px 24px rgba(26, 23, 20, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 /* Heading style: bold, uppercase, spaced */
