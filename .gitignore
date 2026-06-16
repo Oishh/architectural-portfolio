@@ -45,3 +45,6 @@ next-env.d.ts
 
 # playwright-cli browser inspection artifacts (local only)
 .playwright-cli/
+
+# one-time access tokens (sensitive, do not commit)
+/data/tokens.json

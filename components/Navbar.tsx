@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import GenerateLinkButton from "@/components/GenerateLinkButton";
 
 const navLinks = [
   { href: "/#about", label: "About" },
@@ -10,7 +11,7 @@ const navLinks = [
   { href: "/#contact", label: "Contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ isAdmin = false }: { isAdmin?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -54,6 +55,7 @@ export default function Navbar() {
           >
             Resume
           </a>
+          {isAdmin && <GenerateLinkButton />}
         </div>
 
         <button
@@ -106,6 +108,7 @@ export default function Navbar() {
               >
                 Resume
               </a>
+              {isAdmin && <GenerateLinkButton />}
             </div>
           </motion.div>
         )}
