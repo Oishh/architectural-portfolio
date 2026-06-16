@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cookies } from "next/headers";
 import Navbar from "@/components/Navbar";
+import SessionGuard from "@/components/SessionGuard";
 import { getSessionPayload, COOKIE_NAME } from "@/lib/session";
 import "./globals.css";
 
@@ -34,7 +35,9 @@ export default async function RootLayout({
         <div className="glow-blob glow-blob-2" />
         <div className="glow-blob glow-blob-3" />
         <Navbar isAdmin={isAdmin} />
-        {children}
+        <SessionGuard isAdmin={isAdmin}>
+          {children}
+        </SessionGuard>
       </body>
     </html>
   );

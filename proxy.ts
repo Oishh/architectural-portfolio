@@ -1,15 +1,9 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { verifySessionToken, createSessionToken, COOKIE_NAME } from "@/lib/session";
+import { createSessionToken, COOKIE_NAME } from "@/lib/session";
 
 export async function proxy(req: NextRequest) {
-  const sessionToken = req.cookies.get(COOKIE_NAME)?.value;
-
-  if (sessionToken && (await verifySessionToken(sessionToken))) {
-    return NextResponse.next();
-  }
-
-  // Admin bypass: ?admin=<ADMIN_SECRET>
+  // Admin bypass: ?admin=<ADMIN_SECRET> — sets a persistent server-side cookie
   const adminSecret = req.nextUrl.searchParams.get("admin");
   if (adminSecret && adminSecret === process.env.ADMIN_SECRET) {
     const token = await createSessionToken({ isAdmin: true });
@@ -25,7 +19,7 @@ export async function proxy(req: NextRequest) {
     return response;
   }
 
-  // One-time token: ?token=<TOKEN>
+  // One-time token: hand off to the redeem API
   const token = req.nextUrl.searchParams.get("token");
   if (token) {
     const redeemUrl = new URL("/api/redeem", req.url);
@@ -35,11 +29,10 @@ export async function proxy(req: NextRequest) {
     return NextResponse.redirect(redeemUrl);
   }
 
-  return NextResponse.redirect(new URL("/gate", req.url));
+  // Everything else passes through — SessionGuard handles it client-side
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    "/((?!gate|api/redeem|api/admin|_next/static|_next/image|favicon\\.ico).*)",
-  ],
+  matcher: ["/((?!api/redeem|api/admin|_next/static|_next/image|favicon\\.ico).*)"],
 };

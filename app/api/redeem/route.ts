@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isValidToken, burnToken } from "@/lib/token-store";
-import { createSessionToken, COOKIE_NAME } from "@/lib/session";
 
 export async function GET(req: NextRequest) {
   const token = req.nextUrl.searchParams.get("token");
@@ -15,16 +14,8 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(new URL("/gate?reason=invalid", req.url));
   }
 
-  const sessionToken = await createSessionToken();
-  const response = NextResponse.redirect(new URL(next, req.url));
-
-  // No maxAge — session cookie only, dies when the browser is closed
-  response.cookies.set(COOKIE_NAME, sessionToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/",
-  });
-
-  return response;
+  // Signal to the client that access was just granted — no cookie needed
+  const dest = new URL(next, req.url);
+  dest.searchParams.set("_access", "1");
+  return NextResponse.redirect(dest);
 }
